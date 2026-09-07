@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Catching Stars 2D - Web Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="game-card">
+    <!-- Screen 1: Form Registrasi & Menu Utama -->
+    <div id="start-screen" class="screen">
+      <h1 class="game-title">Catching Stars <span>2D</span></h1>
+      <p class="subtitle">Tangkap bintang sebanyak mungkin sebelum waktu habis!</p>
+      
+      <form id="player-form">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Masukkan username Anda" autocomplete="off" required>
+        </div>
+        <div class="input-group">
+          <label for="wa-number">Nomor WhatsApp</label>
+          <input type="tel" id="wa-number" placeholder="Contoh: 081234567890" pattern="[0-9]{9,15}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Mulai Bermain</button>
+      </form>
+
+      <!-- Tombol Menu Leaderboard -->
+      <button id="view-leaderboard-btn" class="btn btn-secondary">🏆 Lihat Leaderboard</button>
+    </div>
+
+    <!-- Screen 2: Game Area -->
+    <div id="game-screen" class="screen hidden">
+      <div class="hud">
+        <div class="hud-item">
+          <span class="hud-label">Skor</span>
+          <span id="score-display" class="hud-value">0</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">Waktu</span>
+          <span id="timer-display" class="hud-value">30s</span>
+        </div>
+      </div>
+
+      <div class="canvas-wrapper">
+        <canvas id="gameCanvas" width="360" height="420"></canvas>
+      </div>
+
+      <div class="controls">
+        <button id="btn-left" class="control-btn" aria-label="Geser Kiri">◀ Kiri</button>
+        <button id="btn-right" class="control-btn" aria-label="Geser Kanan">Kanan ▶</button>
+      </div>
+    </div>
+
+    <!-- Screen 3: End & Result -->
+    <div id="end-screen" class="screen hidden">
+      <h2>Game Over!</h2>
+      <div class="final-score-box">
+        <p>Skor Akhir Anda</p>
+        <div id="final-score">0</div>
+      </div>
+
+      <div class="button-group">
+        <button id="end-leaderboard-btn" class="btn btn-secondary">🏆 Lihat Leaderboard</button>
+        <button id="restart-btn" class="btn btn-primary">Main Lagi</button>
+      </div>
+    </div>
+
+    <!-- Screen 4: Tampilan Leaderboard -->
+    <div id="leaderboard-screen" class="screen hidden">
+      <h2>Papan Peringkat</h2>
+      <div class="leaderboard-container">
+        <h3>Top 10 Pemain Terbaik</h3>
+        <ol id="leaderboard-list">
+          <li class="loading">Memuat data leaderboard...</li>
+        </ol>
+      </div>
+      <button id="back-to-menu-btn" class="btn btn-primary">Kembali ke Menu</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+        </html>
+        
